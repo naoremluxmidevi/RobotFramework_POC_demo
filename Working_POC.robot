@@ -31,6 +31,16 @@ Unsuccessful Login with invalid Username
     Wait Until Page Contains    Invalid credentials    timeout=10
     Close Browser
 
+Unsuccessful Login with invalid Password
+    [Documentation]     Test Login with an invalid password
+    Open Browser  https://opensource-demo.orangehrmlive.com/  Chrome
+    Wait Until Element Is Visible    ${Username_ele}    timeout=10
+    Input Text  ${Username_ele}  Admin
+    Input Password  ${Pass_ele}  ${Invalid_password}
+    Click Element  xpath://button[text()=' Login ']
+
+    Close Browser
+
 
 Logout Test
     [Documentation]     Verify that a user can log out successfully
