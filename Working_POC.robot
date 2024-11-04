@@ -1,16 +1,15 @@
-*** settings ***
+*** Settings ***
 Library    SeleniumLibrary
 Suite Setup    Setup Suite
 Suite Teardown    Teardown Suite
 
-*** variables ***
+*** Variables ***
 ${Username_ele}     xpath=//*[@placeholder="Username"]
 ${Pass_ele}     xpath://*[@placeholder="Password"]
 ${Invalid_username}     Username
 ${Invalid_password}     Password
 
-
-*** test cases ***
+*** Test Cases ***
 Verify Successful Login to OrangeHRM
     [documentation]  This test case verifies that user is able to successfully Login to OrangeHRM
     [tags]  Smoke
@@ -38,9 +37,7 @@ Unsuccessful Login with invalid Password
     Input Text  ${Username_ele}  Admin
     Input Password  ${Pass_ele}  ${Invalid_password}
     Click Element  xpath://button[text()=' Login ']
-
     Close Browser
-
 
 Logout Test
     [Documentation]     Verify that a user can log out successfully
@@ -56,7 +53,7 @@ Logout Test
     Close Browser
 
 
-*** keywords ***
+*** Keywords ***
 Setup Suite
      [Documentation]    This keyword sets up the test environment.
      Log    Setting up the test environment

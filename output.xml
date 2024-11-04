@@ -1,236 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.1.1 (Python 3.13.0rc2 on win32)" generated="2024-11-04T15:56:51.924265" rpa="false" schemaversion="5">
-<suite id="s1" name="Working POC" source="C:\Users\yoges\Robot_framework_project\Working_POC.robot">
-<kw name="Setup Suite" type="SETUP">
-<kw name="Log" owner="BuiltIn">
-<msg time="2024-11-04T15:56:52.198716" level="INFO">Setting up the test environment</msg>
-<arg>Setting up the test environment</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-11-04T15:56:52.198561" elapsed="0.000216"/>
-</kw>
-<doc>This keyword sets up the test environment.</doc>
-<status status="PASS" start="2024-11-04T15:56:52.197947" elapsed="0.000932"/>
-</kw>
-<test id="s1-t1" name="Verify Successful Login to OrangeHRM" line="14">
+<robot generator="Robot 7.1.1 (Python 3.13.0rc2 on win32)" generated="2024-11-04T18:40:02.757038" rpa="false" schemaversion="5">
+<suite id="s1" name="Control For loop" source="C:\Users\yoges\Robot_framework_project\Control_For_loop.robot">
+<test id="s1-t1" name="Login with multiple users" line="11">
 <kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-11-04T15:56:52.199684" level="INFO">Opening browser 'Chrome' to base url 'https://opensource-demo.orangehrmlive.com/'.</msg>
-<arg>https://opensource-demo.orangehrmlive.com/</arg>
-<arg>Chrome</arg>
+<msg time="2024-11-04T18:40:03.021888" level="INFO">Opening browser 'chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>${URL}</arg>
+<arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-11-04T15:56:52.199514" elapsed="9.292042"/>
+<status status="PASS" start="2024-11-04T18:40:03.021640" elapsed="2.530268"/>
 </kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${Username_ele}</arg>
-<arg>timeout=10</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-11-04T15:57:01.491977" elapsed="3.406148"/>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2024-11-04T18:40:05.571288" level="INFO">Length is 2.</msg>
+<msg time="2024-11-04T18:40:05.571473" level="INFO">${user_count} = 2</msg>
+<var>${user_count}</var>
+<arg>${Usernames}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2024-11-04T18:40:05.570962" elapsed="0.000555"/>
 </kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-11-04T15:57:04.906169" level="INFO">Typing text 'Admin' into text field 'xpath=//*[@placeholder="Username"]'.</msg>
-<arg>${Username_ele}</arg>
-<arg>Admin</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-04T15:57:04.905798" elapsed="0.193751"/>
+<for flavor="IN RANGE">
+<iter>
+<kw name="Get From List">
+<msg time="2024-11-04T18:40:05.574772" level="FAIL">No keyword with name 'Get From List' found.</msg>
+<var>${username}</var>
+<arg>${Usernames}</arg>
+<arg>${index}</arg>
+<status status="FAIL" start="2024-11-04T18:40:05.574647" elapsed="0.000209">No keyword with name 'Get From List' found.</status>
 </kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2024-11-04T15:57:05.134362" level="INFO">Typing password into text field 'xpath://*[@placeholder="Password"]'.</msg>
-<msg time="2024-11-04T15:57:05.194367" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>${Pass_ele}</arg>
-<arg>admin123</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-04T15:57:05.133993" elapsed="0.136037"/>
+<kw name="Get From List">
+<var>${password}</var>
+<arg>${Passwords}</arg>
+<arg>${index}</arg>
+<status status="NOT RUN" start="2024-11-04T18:40:05.575127" elapsed="0.000050"/>
 </kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-11-04T15:57:05.270820" level="INFO">Clicking element 'xpath://button[text()=' Login ']'.</msg>
-<arg>xpath://button[text()=' Login ']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-04T15:57:05.270492" elapsed="0.048786"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2024-11-04T15:57:05.319700" elapsed="2.477566"/>
-</kw>
-<doc>This test case verifies that user is able to successfully Login to OrangeHRM</doc>
-<tag>Smoke</tag>
-<status status="PASS" start="2024-11-04T15:56:52.198963" elapsed="15.599667"/>
-</test>
-<test id="s1-t2" name="Unsuccessful Login with invalid Username" line="24">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-11-04T15:57:07.803343" level="INFO">Opening browser 'Chrome' to base url 'https://opensource-demo.orangehrmlive.com/'.</msg>
-<arg>https://opensource-demo.orangehrmlive.com/</arg>
-<arg>Chrome</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-11-04T15:57:07.802799" elapsed="6.920333"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${Username_ele}</arg>
-<arg>timeout=10</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-11-04T15:57:14.723598" elapsed="2.025300"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-11-04T15:57:16.749761" level="INFO">Typing text 'Username' into text field 'xpath=//*[@placeholder="Username"]'.</msg>
-<arg>${Username_ele}</arg>
-<arg>${Invalid_username}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-04T15:57:16.749371" elapsed="0.366213"/>
-</kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2024-11-04T15:57:17.116531" level="INFO">Typing password into text field 'xpath://*[@placeholder="Password"]'.</msg>
-<msg time="2024-11-04T15:57:17.160332" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>${Pass_ele}</arg>
-<arg>${Invalid_password}</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-04T15:57:17.116044" elapsed="0.145454"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-11-04T15:57:17.263116" level="INFO">Clicking element 'xpath://button[text()=' Login ']'.</msg>
-<arg>xpath://button[text()=' Login ']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-04T15:57:17.262394" elapsed="0.074554"/>
+<kw name="Perform Login">
+<arg>${username}</arg>
+<arg>${password}</arg>
+<status status="NOT RUN" start="2024-11-04T18:40:05.575473" elapsed="0.000069"/>
 </kw>
 <kw name="Wait Until Page Contains" owner="SeleniumLibrary">
-<arg>Invalid credentials</arg>
+<arg>Swag Labs</arg>
 <arg>timeout=10</arg>
 <doc>Waits until ``text`` appears on the current page.</doc>
-<status status="PASS" start="2024-11-04T15:57:17.337428" elapsed="3.086388"/>
+<status status="NOT RUN" start="2024-11-04T18:40:05.575718" elapsed="0.000042"/>
 </kw>
+<kw name="Logout">
+<doc>Logs the user out of the application</doc>
+<status status="NOT RUN" start="2024-11-04T18:40:05.575994" elapsed="0.000046"/>
+</kw>
+<var name="${index}">0</var>
+<status status="FAIL" start="2024-11-04T18:40:05.572287" elapsed="0.003867">No keyword with name 'Get From List' found.</status>
+</iter>
+<var>${index}</var>
+<value>0</value>
+<value>${user_count}</value>
+<status status="FAIL" start="2024-11-04T18:40:05.571844" elapsed="0.004466">No keyword with name 'Get From List' found.</status>
+</for>
 <kw name="Close Browser" owner="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" start="2024-11-04T15:57:20.424095" elapsed="2.390299"/>
+<status status="NOT RUN" start="2024-11-04T18:40:05.576670" elapsed="0.000047"/>
 </kw>
-<doc>Test Login with an invalid username</doc>
-<status status="PASS" start="2024-11-04T15:57:07.801165" elapsed="15.014150"/>
+<doc>This test logs in multiple users and checks for the title</doc>
+<status status="FAIL" start="2024-11-04T18:40:03.020532" elapsed="2.556527">No keyword with name 'Get From List' found.</status>
 </test>
-<test id="s1-t3" name="Unsuccessful Login with invalid Password" line="34">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-11-04T15:57:22.818403" level="INFO">Opening browser 'Chrome' to base url 'https://opensource-demo.orangehrmlive.com/'.</msg>
-<arg>https://opensource-demo.orangehrmlive.com/</arg>
-<arg>Chrome</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-11-04T15:57:22.817980" elapsed="6.286277"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${Username_ele}</arg>
-<arg>timeout=10</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-11-04T15:57:29.104661" elapsed="1.594305"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-11-04T15:57:30.699664" level="INFO">Typing text 'Admin' into text field 'xpath=//*[@placeholder="Username"]'.</msg>
-<arg>${Username_ele}</arg>
-<arg>Admin</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-04T15:57:30.699347" elapsed="0.457043"/>
-</kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2024-11-04T15:57:31.157345" level="INFO">Typing password into text field 'xpath://*[@placeholder="Password"]'.</msg>
-<msg time="2024-11-04T15:57:31.208028" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>${Pass_ele}</arg>
-<arg>${Invalid_password}</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-04T15:57:31.156890" elapsed="0.149972"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-11-04T15:57:31.307627" level="INFO">Clicking element 'xpath://button[text()=' Login ']'.</msg>
-<arg>xpath://button[text()=' Login ']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-04T15:57:31.307305" elapsed="0.098783"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2024-11-04T15:57:31.406507" elapsed="2.423986"/>
-</kw>
-<doc>Test Login with an invalid password</doc>
-<status status="PASS" start="2024-11-04T15:57:22.816858" elapsed="11.014462"/>
-</test>
-<test id="s1-t4" name="Logout Test" line="45">
-<kw name="Open Browser" owner="SeleniumLibrary">
-<msg time="2024-11-04T15:57:33.834347" level="INFO">Opening browser 'Chrome' to base url 'https://opensource-demo.orangehrmlive.com/'.</msg>
-<arg>https://opensource-demo.orangehrmlive.com/</arg>
-<arg>Chrome</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<status status="PASS" start="2024-11-04T15:57:33.833956" elapsed="9.054816"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>${Username_ele}</arg>
-<arg>timeout=10</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-11-04T15:57:42.889149" elapsed="2.299856"/>
-</kw>
-<kw name="Input Text" owner="SeleniumLibrary">
-<msg time="2024-11-04T15:57:45.189662" level="INFO">Typing text 'Admin' into text field 'xpath=//*[@placeholder="Username"]'.</msg>
-<arg>${Username_ele}</arg>
-<arg>Admin</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-04T15:57:45.189385" elapsed="0.244459"/>
-</kw>
-<kw name="Input Password" owner="SeleniumLibrary">
-<msg time="2024-11-04T15:57:45.434723" level="INFO">Typing password into text field 'xpath://*[@placeholder="Password"]'.</msg>
-<msg time="2024-11-04T15:57:45.495158" level="INFO">Temporally setting log level to: NONE</msg>
-<arg>${Pass_ele}</arg>
-<arg>admin123</arg>
-<doc>Types the given password into the text field identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-04T15:57:45.434382" elapsed="0.217383"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-11-04T15:57:45.652577" level="INFO">Clicking element 'xpath://button[text()=' Login ']'.</msg>
-<arg>xpath://button[text()=' Login ']</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-04T15:57:45.652256" elapsed="0.052215"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath://li[@class="oxd-userdropdown"]</arg>
-<arg>timeout=10</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-11-04T15:57:45.704820" elapsed="5.917406"/>
-</kw>
-<kw name="Click Element" owner="SeleniumLibrary">
-<msg time="2024-11-04T15:57:51.622986" level="INFO">Clicking element 'xpath://li[@class="oxd-userdropdown"]'.</msg>
-<arg>xpath://li[@class="oxd-userdropdown"]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-04T15:57:51.622673" elapsed="0.052196"/>
-</kw>
-<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
-<arg>xpath://a[text()='Logout']</arg>
-<arg>timeout=10</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" start="2024-11-04T15:57:51.675251" elapsed="0.505645"/>
-</kw>
-<kw name="Click Link" owner="SeleniumLibrary">
-<msg time="2024-11-04T15:57:52.181454" level="INFO">Clicking link 'xpath://a[text()='Logout']'.</msg>
-<arg>xpath://a[text()='Logout']</arg>
-<doc>Clicks a link identified by ``locator``.</doc>
-<status status="PASS" start="2024-11-04T15:57:52.181265" elapsed="10.175446"/>
-</kw>
-<kw name="Close Browser" owner="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="PASS" start="2024-11-04T15:58:02.357252" elapsed="2.436863"/>
-</kw>
-<doc>Verify that a user can log out successfully</doc>
-<status status="PASS" start="2024-11-04T15:57:33.832809" elapsed="30.962201"/>
-</test>
-<kw name="Teardown Suite" type="TEARDOWN">
-<kw name="Log" owner="BuiltIn">
-<msg time="2024-11-04T15:58:04.798499" level="INFO">Tearing down the test environment</msg>
-<arg>Tearing down the test environment</arg>
-<doc>Logs the given message with the given level.</doc>
-<status status="PASS" start="2024-11-04T15:58:04.798174" elapsed="0.000543"/>
-</kw>
-<doc>This keyword tears down the test environment.</doc>
-<status status="PASS" start="2024-11-04T15:58:04.797557" elapsed="0.001407"/>
-</kw>
-<status status="PASS" start="2024-11-04T15:56:51.926298" elapsed="72.872792"/>
+<status status="FAIL" start="2024-11-04T18:40:02.758712" elapsed="2.842629"/>
 </suite>
 <statistics>
 <total>
-<stat pass="4" fail="0" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">Smoke</stat>
 </tag>
 <suite>
-<stat pass="4" fail="0" skip="0" id="s1" name="Working POC">Working POC</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Control For loop">Control For loop</stat>
 </suite>
 </statistics>
 <errors>
